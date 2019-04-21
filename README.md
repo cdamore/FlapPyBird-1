@@ -4,7 +4,7 @@ FlappyBird Genetic Algorithm
 Genetic Algorithm on FlappyBird game. Made using [python-pygame][1]. Forked original game from [sourabhv][2].
 
 ### Implementation
-When the first round starts ,10 birds each follow a differnt randomly initialized neural network to determine when to flap. The inputs to the neural network are:
+When the first round starts, 10 birds each follow a differnt randomly initialized neural network to determine when to flap. The inputs to the neural networks are:
 1) The horizontal distance from the bird to the nearest pipe.
 2) The vertical distance from the bird to the middle of the next gap (between the upper and lower pipes).
 
