@@ -25,7 +25,8 @@ ScreenShots
 
 Video Demo
 ----------
-Not the best video quality, but it can be seen that over 40 generations the best bird learns to play Flappy Bird almost perfectly.
+Not the best video quality, but it can be seen that over 40 generations the best bird learns to play Flappy Bird almost perfectly:
+
 https://www.youtube.com/watch?v=xfXqg3T5piY
 
 Try it Yourself
