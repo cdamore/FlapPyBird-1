@@ -194,10 +194,11 @@ def update_environment():
     SCREEN.blit(IMAGES['base'], (basex, BASEY))
 
 def breed(birds):
-
+    # breed birds for next generation
     set_best_birds(birds)
     print("best bird id: " +  str(birds[0].id))
     birds[0].net.display()
+    # crossover and mutate all but top 2 birds
     for i in range(2, len(birds)):
         crossover_and_mutate(birds[0].net, birds[0].net, birds[i].net)
 
@@ -211,6 +212,7 @@ def set_best_birds(birds):
             score_1 = birds[i].score
             x_pose_1 = birds[i].x_dist
             print('NEW BEST')
+    # set best bird
     temp = birds[0]
     birds[0] = birds[top]
     birds[top] = temp
@@ -220,6 +222,7 @@ def set_best_birds(birds):
             top = i
             score_2 = birds[i].score
             x_pose_2 = birds[i].x_dist
+    # set second best bird
     temp = birds[1]
     birds[1] = birds[top]
     birds[top] = temp
@@ -234,7 +237,7 @@ def crossover_and_mutate(net1, net2, new_net):
     crossover_rate = 0.9
     mutation_rate = 0.05
 
-    # for each weight in layer 1
+    # crossover+mutate each weight in layer 1
     for x in xrange(new_net.weights1.shape[0]):
         for y in xrange(new_net.weights1.shape[1]):
             if random.random() > 0.5:
@@ -245,7 +248,7 @@ def crossover_and_mutate(net1, net2, new_net):
                     new_net.weights1[x][y] = net2.weights1[x][y]
             if random.random() < mutation_rate:
                 new_net.weights1[x][y] = random.uniform(-1.0, 1.0)
-    # for each weight in layer 2
+    # crossover+mutate each weight in layer 2
     for x in xrange(new_net.weights2.shape[0]):
         for y in xrange(new_net.weights2.shape[1]):
             if random.random() > 0.5:

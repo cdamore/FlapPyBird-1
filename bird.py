@@ -37,7 +37,7 @@ class Bird:
         self.playerRotThr  =  20   # rotation threshold
         self.playerFlapAcc =  -9   # players speed on flapping
         self.playerFlapped = False # True when player flaps
-        self.atStart = True
+        self.atStart = True # in starting state of game
         self.max_y = 0
         self.min_y = 0
 
@@ -58,11 +58,8 @@ class Bird:
         return (self.x, self.y)
 
     def update(self, upperPipes, lowerPipes, basex):
-        # print('upperPipes: ' + str(upperPipes[0]['y']))
-        # print('lowerPipes: ' + str(lowerPipes[0]['y']))
-        # print('basex: ' + str(basex))
-        #print('upperPipe: ' + str(upperPipes[0]['y']))
 
+        # update x and y dist
         if (upperPipes[0]['x'] > 0):
             self.x_dist = upperPipes[0]['x']
             self.y_dist = self.y - (lowerPipes[0]['y'] - 60)
@@ -70,6 +67,7 @@ class Bird:
             self.x_dist = upperPipes[1]['x']
             self.y_dist = self.y - (lowerPipes[1]['y'] - 60)
 
+        # check to see if in starting state
         if self.x_dist > 170:
             self.atStart = True
         else:
@@ -78,25 +76,21 @@ class Bird:
         if self.x_dist > 160:
             self.x_dist = 160
 
+        # compress x and y dist to range (0,1)
         self.x_dist = (float(self.x_dist) / float(160))
         self.y_dist = (float(self.y_dist) / float(720)) + 0.8
-
-        # print('y_dist: ' + str(self.y_dist))
-        # print('x_dist: ' + str(self.x_dist))
 
         if self.y_dist > self.max_y:
             self.max_y = self.y_dist
         if self.y_dist < self.min_y:
             self.min_y = self.y_dist
 
-        # print('y_min: ' + str(self.min_y))
-        # print('x_max: ' + str(self.max_y))
-
-
+        # check to exit the game
         for event in pygame.event.get():
             if event.type == QUIT or (event.type == KEYDOWN and event.key == K_ESCAPE):
                 pygame.quit()
                 sys.exit()
+
         # if dist too far (start of game), flap
         if self.x_dist == 1 and self.atStart:
             if self.y > 200:
@@ -104,6 +98,7 @@ class Bird:
                 self.playerFlapped = True
                 SOUNDS['wing'].play()
         else:
+            # if neural net outputs > 0.8, then flap
             if (self.net.eval(self.x_dist, self.y_dist) > 0.8):
                 if self.y > -2 * IMAGES['player'][0].get_height():
                     self.playerVelY = self.playerFlapAcc
