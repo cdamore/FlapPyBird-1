@@ -14,7 +14,7 @@ ScreenShots
 
 Video Demo
 ----------
-https://youtu.be/dowRymcstMw
+https://www.youtube.com/watch?v=xfXqg3T5piY
 
 How-to-Install
 ------
