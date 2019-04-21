@@ -1,7 +1,21 @@
 FlappyBird Genetic Algorithm
 ===============
 
-Genetic Algorithm on FlappyBird game. Made using [python-pygame][1]. Forked original game from [sourabhv][2]
+Genetic Algorithm on FlappyBird game. Made using [python-pygame][1]. Forked original game from [sourabhv][2].
+
+### Implementation
+When the first round starts ,10 birds each follow a differnt randomly initialized neural network to determine when to flap. The inputs to the neural network are:
+1) The horizontal distance from the bird to the nearest pipe.
+2) The vertical distance from the bird to the middle of the next gap (between the upper and lower pipes).
+
+A bird flaps if the output of the neural net > 0.8.
+
+After each generation, crossover and mutation is applied to all but the best bird. The best bird (fitness function) is defined by the bird that traveled the furthest distance (score & width to next pipe) in all the rounds. The crossover currently takes the best bird and breeds it at a rate of 0.9 with a mutation rate of 0.05 (these can be easiliy changed). 
+
+From generation to generation the best bird continues to improve until converging at the (close to) optimal neural network that allows the best bird to play the game perfectly. This can be seen in the video demo below
+
+[1]: http://www.pygame.org
+[2]: https://github.com/sourabhv
 
 ScreenShots
 ----------
@@ -9,11 +23,9 @@ ScreenShots
 ![Flappy Bird](flappy5.png)
 ![Flappy Bird](flappy4.png)
 
-[1]: http://www.pygame.org
-[2]: https://github.com/sourabhv
-
 Video Demo
 ----------
+Not the best video quality, but it can be seen that over 40 generations the best bird learns to play Flappy Bird almost perfectly.
 https://www.youtube.com/watch?v=xfXqg3T5piY
 
 Try it Yourself
