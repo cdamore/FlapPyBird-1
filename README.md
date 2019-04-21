@@ -16,7 +16,7 @@ Video Demo
 ----------
 https://www.youtube.com/watch?v=xfXqg3T5piY
 
-How-to-Install
+Try It Yourself
 ------
 
 1. Install Python 2.7.X or 3.5.x from [here](https://www.python.org/download/releases/)
