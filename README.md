@@ -19,6 +19,7 @@ From generation to generation the best bird continues to improve until convergin
 
 ScreenShots
 ----------
+Note the score in the bottom right corner represents the current generation.
 
 ![Flappy Bird](flappy5.png)
 ![Flappy Bird](flappy4.png)
