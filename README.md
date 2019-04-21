@@ -1,7 +1,19 @@
-FlappyBirdClone
+FlappyBird Genetic Algorithm
 ===============
 
-A Flappy Bird Clone made using [python-pygame][1]
+Genetic Algorithm on FlappyBird game. Made using [python-pygame][1]
+
+ScreenShots
+----------
+
+![Flappy Bird](flappy5.png)
+![Flappy Bird](flappy4.png)
+
+[1]: http://www.pygame.org
+
+Video Demo
+----------
+https://youtu.be/dowRymcstMw
 
 How-to
 ------
@@ -19,11 +31,3 @@ How-to
   (Note: Install pyGame for same version python as above)
 
   (For x64 windows, get exe [here](http://www.lfd.uci.edu/~gohlke/pythonlibs/#pygame))
-
-ScreenShot
-----------
-
-![Flappy Bird](flappy5.png)
-![Flappy Bird](flappy4.png)
-
-[1]: http://www.pygame.org
